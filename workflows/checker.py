@@ -20,7 +20,7 @@ except ImportError:
     from fast_flights import FlightData, Passengers, get_flights
 
 # ── Config ────────────────────────────────────────────────────────────────────
-HOME_AIRPORTS = ["DTW", "LAX", "CLE", "YYZ"]
+HOME_AIRPORTS = ["DTW", "LAX", "CLE", "YYZ", "ABQ"]
 
 TRIP_WINDOWS = [
     {"label": "Oct 24 – Nov 4",  "depart": "2026-10-24", "return": "2026-11-04", "peak": False},
