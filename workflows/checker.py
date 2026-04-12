@@ -213,6 +213,13 @@ def send_telegram(message):
 
 
 # ── Main scrape ───────────────────────────────────────────────────────────────
+def safe_stops(stops):
+    try:
+        return int(stops or 0)
+    except (ValueError, TypeError):
+        return 1
+
+
 def scrape_all():
     results = {}
     for window in TRIP_WINDOWS:
@@ -222,7 +229,6 @@ def scrape_all():
             print(f"\n🔍 {home} | {window['label']}")
             legs = []
 
-            # Outbound
             print(f"   {home}→BKK ({window['depart']})...", end=" ", flush=True)
             out = search_leg(home, "BKK", window["depart"])
             if out:
@@ -231,7 +237,6 @@ def scrape_all():
                 print("N/A")
             legs.append({"label": f"{home} → Bangkok", "date": window["depart"], "flight": out})
 
-            # Return
             print(f"   BKK→{home} ({window['return']})...", end=" ", flush=True)
             ret = search_leg("BKK", home, window["return"])
             if ret:
@@ -246,18 +251,16 @@ def scrape_all():
             ret_usd = to_usd(ret_p, home)
             total_usd = (out_usd + ret_usd) if (out_usd and ret_usd) else None
             total_native = (out_p + ret_p) if (out_p and ret_p) else None
+            total_stops = (safe_stops(out.get("stops")) + safe_stops(ret.get("stops"))) if (out and ret) else 2
 
             results[key][home] = {
                 "legs": legs,
                 "total": total_native,
                 "total_usd": total_usd,
-def safe_stops(stops):
-    try:
-        return int(stops or 0)
-    except (ValueError, TypeError):
-        return 1
+                "score": flight_score(total_usd, out["duration"] if out else "–", total_stops)
             }
     return results
+
 
 
 # ── Alerts ────────────────────────────────────────────────────────────────────
