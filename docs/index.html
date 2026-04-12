@@ -17,7 +17,7 @@
   .best-deal { background: #e8f5e9; border-left: 4px solid #22863a; padding: 14px 18px; border-radius: 0 10px 10px 0; margin-bottom: 12px; }
   .best-deal .amount { font-size: 26px; font-weight: 700; color: #1a6b2a; }
   .best-deal .label  { font-size: 13px; color: #2d8a3e; margin-top: 2px; }
-  .calendar-grid { display: grid; grid-template-columns: 160px repeat(4, 1fr); gap: 4px; font-size: 13px; }
+  .calendar-grid { display: grid; grid-template-columns: 160px repeat(5, 1fr); gap: 4px; font-size: 13px; }
   .calendar-grid .header { font-weight: 600; color: #555; padding: 6px 8px; background: #f0f4ff; border-radius: 4px; text-align: center; }
   .calendar-grid .row-label { font-weight: 600; color: #333; padding: 6px 8px; display: flex; align-items: center; }
   .calendar-grid .cell { padding: 8px 6px; border-radius: 6px; text-align: center; font-weight: 700; font-size: 13px; cursor: pointer; transition: opacity .15s; }
@@ -44,7 +44,7 @@
   .stat { background: #fff; border-radius: 10px; padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.07); }
   .stat .val { font-size: 22px; font-weight: 700; color: #0044bb; }
   .stat .lbl { font-size: 12px; color: #888; margin-top: 2px; }
-  @media(max-width:600px) { .calendar-grid { grid-template-columns: 120px repeat(4,1fr); font-size:11px; } }
+  @media(max-width:600px) { .calendar-grid { grid-template-columns: 120px repeat(5,1fr); font-size:11px; } }
 </style>
 </head>
 <body>
@@ -80,7 +80,7 @@
 <script>
 // ── Config — update YOUR GitHub username/repo ──────────────────────────────
 const PRICES_URL = "https://raw.githubusercontent.com/ballhog/NextTravels/main/prices.json";
-const HOME_AIRPORTS = ["DTW","LAX","CLE","YYZ"];
+const HOME_AIRPORTS = ["DTW","LAX","CLE","YYZ","ABQ"];
 const WINDOWS = [
   {label:"Oct 24 – Nov 4",  key:"2026-10-24", peak:false},
   {label:"Nov 21 – Dec 2",  key:"2026-11-21", peak:false},
@@ -88,7 +88,7 @@ const WINDOWS = [
   {label:"Jan 20 – Jan 30", key:"2027-01-20", peak:false},
   {label:"Feb 3 – Feb 13",  key:"2027-02-03", peak:false},
 ];
-const COLORS = ["#0066cc","#e85d04","#2d9b44","#9b2dca"];
+const COLORS = ["#0066cc","#e85d04","#2d9b44","#9b2dca","#cc6600"];
 
 let priceData = {};
 let trendChart = null;
