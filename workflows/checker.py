@@ -26,19 +26,17 @@ ABQ_AIRPORTS = ["ABQ"]
 CONNECTORS = {"ABQ": {"via": "LAX"}}
 
 TRIP_WINDOWS = [
-    {"label": "Oct 24 – Nov 4",  "depart": "2026-10-24", "return": "2026-11-04", "peak": False},
-    {"label": "Nov 21 – Dec 2",  "depart": "2026-11-21", "return": "2026-12-02", "peak": False},
     {"label": "Dec 19 – Dec 30", "depart": "2026-12-19", "return": "2026-12-30", "peak": True},
-    {"label": "Jan 20 – Jan 30", "depart": "2027-01-20", "return": "2027-01-30", "peak": False},
-    {"label": "Feb 3 – Feb 13",  "depart": "2027-02-03", "return": "2027-02-13", "peak": False},
+    {"label": "Jan 22 – Feb 2",  "depart": "2027-01-22", "return": "2027-02-02", "peak": False},
+    {"label": "Jan 29 – Feb 9",  "depart": "2027-01-29", "return": "2027-02-09", "peak": False},
+    {"label": "Feb 3 – Feb 14",  "depart": "2027-02-03", "return": "2027-02-14", "peak": False},
 ]
 
 ABQ_TRIP_WINDOWS = [
-    {"label": "Oct 24 – Nov 1 (8d)",  "depart": "2026-10-24", "return": "2026-11-01", "peak": False},
-    {"label": "Nov 21 – Nov 29 (8d)", "depart": "2026-11-21", "return": "2026-11-29", "peak": False},
-    {"label": "Dec 19 – Dec 27 (8d)", "depart": "2026-12-19", "return": "2026-12-27", "peak": True},
-    {"label": "Jan 20 – Jan 28 (8d)", "depart": "2027-01-20", "return": "2027-01-28", "peak": False},
-    {"label": "Feb 3 – Feb 11 (8d)",  "depart": "2027-02-03", "return": "2027-02-11", "peak": False},
+    {"label": "Dec 19 – Dec 28 (9d)", "depart": "2026-12-19", "return": "2026-12-28", "peak": True},
+    {"label": "Jan 22 – Jan 31 (9d)", "depart": "2027-01-22", "return": "2027-01-31", "peak": False},
+    {"label": "Jan 29 – Feb 7 (9d)",  "depart": "2027-01-29", "return": "2027-02-07", "peak": False},
+    {"label": "Feb 3 – Feb 12 (9d)",  "depart": "2027-02-03", "return": "2027-02-12", "peak": False},
 ]
 
 CAD_TO_USD         = 0.73
