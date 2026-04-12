@@ -22,6 +22,12 @@ except ImportError:
 # ── Config ────────────────────────────────────────────────────────────────────
 HOME_AIRPORTS = ["DTW", "LAX", "CLE", "YYZ", "ABQ"]
 
+# Connector flights — add these to the base airport price
+# e.g. ABQ person connecting through LAX
+CONNECTORS = {
+    "ABQ": {"via": "LAX", "date_field": "depart", "label": "ABQ→LAX connector"}
+}
+
 TRIP_WINDOWS = [
     {"label": "Oct 24 – Nov 4",  "depart": "2026-10-24", "return": "2026-11-04", "peak": False},
     {"label": "Nov 21 – Dec 2",  "depart": "2026-11-21", "return": "2026-12-02", "peak": False},
