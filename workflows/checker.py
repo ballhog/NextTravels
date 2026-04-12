@@ -39,7 +39,7 @@ CHECK_DMK         = True   # Also check Don Mueang airport (cheaper sometimes)
 CHECK_OPEN_JAW    = True   # Fly in BKK, fly out HKT (open jaw)
 
 EMAIL_TO    = "joeydanyriera@gmail.com"
-PRICES_FILE = Path("workflows/prices.json")
+PRICES_FILE = Path("prices.json")
 
 TELEGRAM_TOKEN   = os.environ.get("TELEGRAM_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
