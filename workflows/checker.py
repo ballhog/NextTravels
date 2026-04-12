@@ -74,13 +74,19 @@ def search_leg(origin, destination, date):
                 continue
             if best_price is None or price < best_price:
                 best_price = price
+ # Debug: print all available fields
+                print(f"      fields: {[a for a in dir(f) if not a.startswith('_')]}")
                 best = {
                     "price": price,
-                    "airline": getattr(f, "name", None) or getattr(f, "airline", None) or "–",
-                    "departure": getattr(f, "departure", None) or getattr(f, "departure_time", None) or "–",
-                    "arrival": getattr(f, "arrival", None) or getattr(f, "arrival_time", None) or "–",
-                    "duration": getattr(f, "duration", None) or "–",
-                    "stops": getattr(f, "stops", None),
+                    "airline": (getattr(f, "name", None) or getattr(f, "airline", None) or
+                                getattr(f, "airlines", None) or getattr(f, "carrier", None) or "–"),
+                    "departure": (getattr(f, "departure", None) or getattr(f, "departure_time", None) or
+                                  getattr(f, "depart", None) or getattr(f, "departs", None) or "–"),
+                    "arrival": (getattr(f, "arrival", None) or getattr(f, "arrival_time", None) or
+                                getattr(f, "arrive", None) or getattr(f, "arrives", None) or "–"),
+                    "duration": (getattr(f, "duration", None) or getattr(f, "travel_time", None) or
+                                 getattr(f, "flight_time", None) or "–"),
+                    "stops": getattr(f, "stops", None) or getattr(f, "num_stops", None),
                 }
         return best
     except Exception as e:
