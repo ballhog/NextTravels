@@ -147,22 +147,33 @@ def scrape_all():
 
 
 # ── HTML email ────────────────────────────────────────────────────────────────
+def flights_url(origin, dest, date):
+    d = datetime.strptime(date, "%Y-%m-%d")
+    pretty = d.strftime("%B %d %Y").replace(" 0", " ")
+    q = f"flights from {origin} to {dest} on {pretty}"
+    return "https://www.google.com/travel/flights?q=" + q.replace(" ", "+")
+
+
 def build_html(today_data, yesterday_data, run_date):
 
     def leg_row(leg):
         f = leg.get("flight")
         label = leg.get("label", "")
         date = leg.get("date", "")
+        origin = label.split("→")[0].strip().split(" ")[-1]
+        dest = label.split("→")[1].strip().split(" ")[0]
+        url = flights_url(origin, dest, date)
         is_return = "Return" in label
 
         if not f:
-            return f'<tr style="background:#fafafa"><td colspan="6" style="padding:8px 14px 8px 28px;font-size:13px;color:#999;border-bottom:1px solid #f0f0f0">{label} · {date} — no results</td></tr>'
+            return f'<tr style="background:#fafafa"><td colspan="6" style="padding:8px 14px 8px 28px;font-size:13px;color:#999;border-bottom:1px solid #f0f0f0">{label} · {date} — <a href="{url}">search Google Flights</a></td></tr>'
 
         stop_color = "#22863a" if f.get("stops") == 0 else "#555"
         return_badge = ' <span style="background:#e8f4fd;color:#0055cc;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:700;letter-spacing:.3px">RETURN</span>' if is_return else ""
+        book_link = f'<br><a href="{url}" style="font-size:11px;color:#0055cc;text-decoration:none">🔍 Search on Google Flights →</a>'
 
         return f"""<tr style="background:#fafafa">
-          <td style="padding:9px 14px 9px 28px;font-size:13px;color:#444;border-bottom:1px solid #efefef">{label}{return_badge}<br><span style="color:#aaa;font-size:11px">{date}</span></td>
+          <td style="padding:9px 14px 9px 28px;font-size:13px;color:#444;border-bottom:1px solid #efefef">{label}{return_badge}<br><span style="color:#aaa;font-size:11px">{date}</span>{book_link}</td>
           <td style="padding:9px 14px;font-size:14px;font-weight:700;color:#0044bb;border-bottom:1px solid #efefef">${f['price']:,}</td>
           <td style="padding:9px 14px;font-size:13px;color:#333;border-bottom:1px solid #efefef">{f.get('airline','–')}</td>
           <td style="padding:9px 14px;font-size:13px;color:#555;border-bottom:1px solid #efefef;white-space:nowrap">{f.get('departure','–')} → {f.get('arrival','–')}</td>
