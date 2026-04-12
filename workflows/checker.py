@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Thailand Flight Price Tracker
-Scrapes Google Flights daily for a multi-leg Thailand trip.
+Scrapes Google Flights daily for round trips to Bangkok.
 Emails a comparison table + trend to joeydanyriera@gmail.com
 """
 
@@ -9,7 +9,7 @@ import json
 import os
 import smtplib
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pathlib import Path
@@ -23,29 +23,20 @@ except ImportError:
     from fast_flights import FlightData, Passengers, get_flights
 
 # ── Config ──────────────────────────────────────────────────────────────────
-HOME_AIRPORTS   = ["DTW", "ORD", "YYZ"]
-DEPARTURE_DATES = ["2026-10-24", "2026-11-20", "2026-12-26", "2027-01-24", "2027-02-26"]
-WINDOW_LABELS   = {"2026-10-24": "Oct 24", "2026-11-20": "Nov 20", "2026-12-26": "Dec 26", "2027-01-24": "Jan 24", "2027-02-26": "Feb 26"}
-EMAIL_TO        = "joeydanyriera@gmail.com"
-PRICES_FILE     = Path("workflows/prices.json")
+HOME_AIRPORTS = ["DTW", "LAX", "CLE", "YYZ"]
 
-LEG_OFFSETS = [
-    ("home", "BKK",  0,  "Home → Bangkok"),
-    ("BKK",  "CNX",  5,  "Bangkok → Chiang Mai"),
-    ("CNX",  "HKT",  8,  "Chiang Mai → Phuket"),
-    ("HKT",  "home", 10, "Phuket → Home (Return)"),
+TRIP_WINDOWS = [
+    {"label": "Oct 24 – Nov 4",   "depart": "2026-10-24", "return": "2026-11-04"},
+    {"label": "Nov 21 – Dec 2",   "depart": "2026-11-21", "return": "2026-12-02"},
+    {"label": "Dec 19 – Dec 30",  "depart": "2026-12-19", "return": "2026-12-30"},
+    {"label": "Jan 20 – Jan 30",  "depart": "2027-01-20", "return": "2027-01-30"},
+    {"label": "Feb 3 – Feb 13",   "depart": "2027-02-03", "return": "2027-02-13"},
 ]
 
+EMAIL_TO   = "joeydanyriera@gmail.com"
+PRICES_FILE = Path("workflows/prices.json")
+
 # ── Helpers ──────────────────────────────────────────────────────────────────
-def trip_dates(departure):
-    d = datetime.strptime(departure, "%Y-%m-%d")
-    results = []
-    for from_code, to_code, offset, label in LEG_OFFSETS:
-        date = (d + timedelta(days=offset)).strftime("%Y-%m-%d")
-        results.append((from_code, to_code, date, label))
-    return results
-
-
 def parse_price(p):
     if isinstance(p, (int, float)) and p > 0:
         return int(p)
@@ -83,13 +74,10 @@ def search_leg(origin, destination, date):
         if not candidates:
             return None
 
-        # Sort by price
         candidates.sort(key=lambda x: x["price"])
-
-        # Prefer cheapest flight with full details, fallback to cheapest overall
         has_details = [c for c in candidates if c["departure"] != "–" and c["airline"] != "–"]
         best = has_details[0] if has_details else candidates[0]
-        best["price"] = candidates[0]["price"]  # always use cheapest price
+        best["price"] = candidates[0]["price"]
         return best
     except Exception as e:
         print(f"  ⚠ {origin}→{destination} on {date}: {e}")
@@ -131,26 +119,35 @@ def stops_label(stops):
 # ── Main scrape ───────────────────────────────────────────────────────────────
 def scrape_all():
     results = {}
-    for departure in DEPARTURE_DATES:
-        results[departure] = {}
-        legs = trip_dates(departure)
+    for window in TRIP_WINDOWS:
+        key = window["depart"]
+        results[key] = {}
         for home in HOME_AIRPORTS:
-            print(f"\n🔍 {home} | {WINDOW_LABELS[departure]}")
-            leg_data = []
-            for from_code, to_code, date, label in legs:
-                origin = home if from_code == "home" else from_code
-                dest   = home if to_code  == "home" else to_code
-                print(f"   {origin}→{dest} ({date})...", end=" ", flush=True)
-                flight = search_leg(origin, dest, date)
-                if flight:
-                    print(f"${flight['price']} | {flight['airline']} | {flight['departure']}→{flight['arrival']} | {flight['duration']} | {stops_label(flight['stops'])}")
-                else:
-                    print("N/A")
-                leg_data.append({"label": label.replace("Home", home), "date": date, "flight": flight})
+            print(f"\n🔍 {home} | {window['label']}")
+            legs = []
 
-            valid_prices = [l["flight"]["price"] for l in leg_data if l["flight"]]
-            total = sum(valid_prices) if len(valid_prices) == 4 else None
-            results[departure][home] = {"legs": leg_data, "total": total}
+            # Outbound: Home → Bangkok
+            print(f"   {home}→BKK ({window['depart']})...", end=" ", flush=True)
+            out = search_leg(home, "BKK", window["depart"])
+            if out:
+                print(f"${out['price']} | {out['airline']} | {out['departure']}→{out['arrival']} | {out['duration']} | {stops_label(out['stops'])}")
+            else:
+                print("N/A")
+            legs.append({"label": f"{home} → Bangkok", "date": window["depart"], "flight": out})
+
+            # Return: Bangkok → Home
+            print(f"   BKK→{home} ({window['return']})...", end=" ", flush=True)
+            ret = search_leg("BKK", home, window["return"])
+            if ret:
+                print(f"${ret['price']} | {ret['airline']} | {ret['departure']}→{ret['arrival']} | {ret['duration']} | {stops_label(ret['stops'])}")
+            else:
+                print("N/A")
+            legs.append({"label": f"Bangkok → {home} (Return)", "date": window["return"], "flight": ret})
+
+            out_price = out["price"] if out else None
+            ret_price = ret["price"] if ret else None
+            total = (out_price + ret_price) if (out_price and ret_price) else None
+            results[key][home] = {"legs": legs, "total": total}
     return results
 
 
@@ -168,8 +165,9 @@ def build_html(today_data, yesterday_data, run_date):
         f = leg.get("flight")
         label = leg.get("label", "")
         date = leg.get("date", "")
-        origin = label.split("→")[0].strip().split(" ")[-1]
-        dest = label.split("→")[1].strip().split(" ")[0]
+        parts = label.split("→")
+        origin = parts[0].strip().split(" ")[-1]
+        dest = parts[1].strip().split(" ")[0] if len(parts) > 1 else "BKK"
         url = flights_url(origin, dest, date)
         is_return = "Return" in label
 
@@ -190,13 +188,13 @@ def build_html(today_data, yesterday_data, run_date):
         </tr>"""
 
     sections = ""
-    for departure in DEPARTURE_DATES:
-        win_label = WINDOW_LABELS[departure]
-        sections += f'<tr><td colspan="6" style="padding:24px 14px 8px;font-size:17px;font-weight:700;color:#111;border-top:3px solid #0055cc">📅 {win_label} window</td></tr>'
+    for window in TRIP_WINDOWS:
+        key = window["depart"]
+        sections += f'<tr><td colspan="6" style="padding:24px 14px 8px;font-size:17px;font-weight:700;color:#111;border-top:3px solid #0055cc">📅 {window["label"]}</td></tr>'
 
         for home in HOME_AIRPORTS:
-            curr = today_data.get(departure, {}).get(home, {})
-            prev = yesterday_data.get(departure, {}).get(home, {})
+            curr = today_data.get(key, {}).get(home, {})
+            prev = yesterday_data.get(key, {}).get(home, {})
             curr_total = curr.get("total")
             prev_total = prev.get("total")
             arrow = trend_arrow(curr_total, prev_total)
@@ -207,7 +205,7 @@ def build_html(today_data, yesterday_data, run_date):
             <span style="font-size:15px;font-weight:700;color:#0033aa">✈ From {home}</span>
             &nbsp;&nbsp;{total_str}&nbsp;&nbsp;
             <span style="font-size:13px">{arrow}</span>
-            &nbsp;&nbsp;<span style="font-size:11px;color:#888;font-style:italic">4 flights incl. return</span>
+            &nbsp;&nbsp;<span style="font-size:11px;color:#888;font-style:italic">outbound + return</span>
           </td>
         </tr>
         <tr style="background:#dde4f8">
@@ -227,13 +225,13 @@ def build_html(today_data, yesterday_data, run_date):
 <body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f2f5;margin:0;padding:20px">
 <div style="max-width:800px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.10)">
   <div style="background:linear-gradient(135deg,#003faa,#0088ee);padding:28px 32px;color:#fff">
-    <h1 style="margin:0;font-size:22px">✈️ Thailand Trip — Daily Flight Prices</h1>
-    <p style="margin:8px 0 0;opacity:.85;font-size:14px">Scraped {run_date} · Economy · 1 adult · Cheapest option per leg</p>
+    <h1 style="margin:0;font-size:22px">✈️ Bangkok Trip — Daily Flight Prices</h1>
+    <p style="margin:8px 0 0;opacity:.85;font-size:14px">Scraped {run_date} · Economy · 1 adult · Round trip to Bangkok</p>
   </div>
   <div style="padding:16px 32px 8px;border-bottom:1px solid #eee">
     <p style="margin:0;color:#555;font-size:13px;line-height:1.7">
-      <strong>Route:</strong> Home → Bangkok (Day 1) → Chiang Mai (Day 6) → Phuket (Day 9) → Home (Day 11)<br>
-      <strong>Total</strong> = cheapest available flight on each of the 4 legs, including the <strong>return flight home</strong>.
+      <strong>Route:</strong> Home → Bangkok (BKK) → Home<br>
+      <strong>Total</strong> = outbound + return flight combined.
     </p>
   </div>
   <div style="padding:8px 32px 28px">
@@ -241,7 +239,7 @@ def build_html(today_data, yesterday_data, run_date):
     <p style="margin:20px 0 0;font-size:11px;color:#bbb">Prices from Google Flights · YYZ in CAD · All others USD · Best price at time of scrape</p>
   </div>
   <div style="background:#f8f9fa;padding:14px 32px;text-align:center;font-size:12px;color:#bbb">
-    Thailand Flight Tracker · Auto-runs daily at 7am ET · github.com/ballhog/NextTravels
+    Bangkok Flight Tracker · Auto-runs daily at 7am ET · github.com/ballhog/NextTravels
   </div>
 </div>
 </body></html>"""
@@ -254,7 +252,7 @@ def send_email(html, run_date):
         print("⚠ GMAIL_USER / GMAIL_APP_PASSWORD not set — skipping email.")
         return
     msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"✈️ Thailand Flights — {run_date}"
+    msg["Subject"] = f"✈️ Bangkok Flights — {run_date}"
     msg["From"]    = gmail_user
     msg["To"]      = EMAIL_TO
     msg.attach(MIMEText(html, "html"))
@@ -268,7 +266,7 @@ def send_email(html, run_date):
 if __name__ == "__main__":
     run_date = datetime.now().strftime("%B %d, %Y")
     today_key = datetime.now().strftime("%Y-%m-%d")
-    print(f"🦞 Thailand Flight Tracker — {run_date}\n{'─'*50}")
+    print(f"🦞 Bangkok Flight Tracker — {run_date}\n{'─'*50}")
     history = load_history()
     yesterday_data = history.get("latest", {})
     print("\n📡 Scraping Google Flights...")
@@ -280,10 +278,11 @@ if __name__ == "__main__":
     html = build_html(today_data, yesterday_data, run_date)
     send_email(html, run_date)
     print(f"\n{'─'*50}\n📊 Summary:\n")
-    for dep in DEPARTURE_DATES:
-        print(f"  {WINDOW_LABELS[dep]}:")
+    for window in TRIP_WINDOWS:
+        key = window["depart"]
+        print(f"  {window['label']}:")
         for home in HOME_AIRPORTS:
-            d = today_data.get(dep, {}).get(home, {})
+            d = today_data.get(key, {}).get(home, {})
             total = d.get("total")
             print(f"    {home}: {'$'+str(total) if total else 'N/A'}")
             for leg in d.get("legs", []):
