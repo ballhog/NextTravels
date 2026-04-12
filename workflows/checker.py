@@ -22,10 +22,9 @@ except ImportError:
 # ── Config ────────────────────────────────────────────────────────────────────
 HOME_AIRPORTS = ["DTW", "LAX", "CLE", "YYZ", "ABQ"]
 
-# Connector flights — add these to the base airport price
-# e.g. ABQ person connecting through LAX
+# Connector flights — ABQ connects through LAX
 CONNECTORS = {
-    "ABQ": {"via": "LAX", "date_field": "depart", "label": "ABQ→LAX connector"}
+    "ABQ": {"via": "LAX"}
 }
 
 TRIP_WINDOWS = [
@@ -44,7 +43,7 @@ CHECK_PREMIUM_ECO = True   # Also search premium economy prices
 CHECK_DMK         = True   # Also check Don Mueang airport (cheaper sometimes)
 CHECK_OPEN_JAW    = True   # Fly in BKK, fly out HKT (open jaw)
 
-EMAIL_TO    = "joeydanyriera@gmail.com"
+EMAIL_TO    = ["joeydanyriera@gmail.com", "maria.agoytia@gmail.com"]
 PRICES_FILE = Path("prices.json")
 
 TELEGRAM_TOKEN   = os.environ.get("TELEGRAM_TOKEN", "")
@@ -293,6 +292,24 @@ def scrape_all():
             ret_usd = to_usd(ret["price"] if ret else None, home)
             total_usd = (out_usd + ret_usd) if (out_usd and ret_usd) else None
             total_native = ((out["price"] + ret["price"]) if (out and ret) else None)
+
+            # ── Connector: ABQ adds ABQ→LAX cost to LAX total ──
+            connector_cost = None
+            connector_via = None
+            if home in CONNECTORS:
+                via = CONNECTORS[home]["via"]
+                connector_via = via
+                print(f"   [Connector] {home}→{via} ({window['depart']})...", end=" ", flush=True)
+                conn = search_leg(home, via, window["depart"])
+                if conn:
+                    connector_cost = conn["price"]
+                    via_total = results[key].get(via, {}).get("total_usd")
+                    if via_total:
+                        total_usd = via_total + connector_cost
+                        total_native = total_usd
+                    print(f"${connector_cost} → via {via} all-in: ${total_usd}")
+                else:
+                    print("N/A")
 
             prem_out_usd = to_usd(prem_out["price"] if prem_out else None, home)
             prem_ret_usd = to_usd(prem_ret["price"] if prem_ret else None, home)
@@ -603,12 +620,12 @@ def send_email(html, run_date, is_sunday=False):
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subj
     msg["From"] = gmail_user
-    msg["To"] = EMAIL_TO
+    msg["To"] = ", ".join(EMAIL_TO) if isinstance(EMAIL_TO, list) else EMAIL_TO
     msg.attach(MIMEText(html, "html"))
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as s:
         s.login(gmail_user, gmail_pass)
-        s.sendmail(gmail_user, EMAIL_TO, msg.as_string())
-    print(f"📧 Email sent to {EMAIL_TO}")
+        s.sendmail(gmail_user, EMAIL_TO if isinstance(EMAIL_TO, list) else [EMAIL_TO], msg.as_string())
+    print(f"📧 Email sent to {', '.join(EMAIL_TO) if isinstance(EMAIL_TO, list) else EMAIL_TO}")
 
 if __name__ == "__main__":
     run_date  = datetime.now().strftime("%B %d, %Y")
