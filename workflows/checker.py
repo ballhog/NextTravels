@@ -251,8 +251,8 @@ def scrape_all():
                 "legs": legs,
                 "total": total_native,
                 "total_usd": total_usd,
-                "score": flight_score(total_usd, out["duration"] if out else "–",
-                                      (out.get("stops") or 0) + (ret.get("stops") or 0) if out and ret else 2)
+                 "score": flight_score(total_usd, out["duration"] if out else "–",
+                                      (int(out.get("stops") or 0)) + (int(ret.get("stops") or 0)) if out and ret else 2)
             }
     return results
 
