@@ -24,8 +24,8 @@ except ImportError:
 
 # ── Config ──────────────────────────────────────────────────────────────────
 HOME_AIRPORTS   = ["DTW", "ORD", "YYZ"]
-DEPARTURE_DATES = ["2026-10-24", "2026-11-20", "2026-12-26"]
-WINDOW_LABELS   = {"2026-10-24": "Oct 24", "2026-11-20": "Nov 20", "2026-12-26": "Dec 26"}
+DEPARTURE_DATES = ["2026-10-24", "2026-11-20", "2026-12-26", "2027-01-24", "2027-02-26"]
+WINDOW_LABELS   = {"2026-10-24": "Oct 24", "2026-11-20": "Nov 20", "2026-12-26": "Dec 26", "2027-01-24": "Jan 24", "2027-02-26": "Feb 26"}
 EMAIL_TO        = "joeydanyriera@gmail.com"
 PRICES_FILE     = Path("workflows/prices.json")
 
