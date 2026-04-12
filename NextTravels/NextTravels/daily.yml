@@ -1,0 +1,38 @@
+name: Daily Flight Price Check
+
+on:
+  schedule:
+    # 7:00 AM ET = 12:00 UTC (EST, Nov–Mar) / 11:00 UTC (EDT, Mar–Nov)
+    # Using 12:00 UTC to cover Oct–Dec window (EST)
+    - cron: "0 12 * * *"
+  workflow_dispatch:  # allows manual trigger from GitHub UI
+
+jobs:
+  check-flights:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run flight checker
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python checker.py
+
+      - name: Commit updated prices.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add prices.json
+          git diff --staged --quiet || git commit -m "chore: update prices $(date -u +'%Y-%m-%d')"
+          git push
