@@ -66,28 +66,30 @@ def search_leg(origin, destination, date):
             seat="economy",
             passengers=Passengers(adults=1),
         )
-        best = None
-        best_price = None
+        candidates = []
         for f in result.flights:
             price = parse_price(f.price)
             if price is None:
                 continue
-            if best_price is None or price < best_price:
-                best_price = price
- # Debug: print all available fields
-                print(f"      fields: {[a for a in dir(f) if not a.startswith('_')]}")
-                best = {
-                    "price": price,
-                    "airline": (getattr(f, "name", None) or getattr(f, "airline", None) or
-                                getattr(f, "airlines", None) or getattr(f, "carrier", None) or "–"),
-                    "departure": (getattr(f, "departure", None) or getattr(f, "departure_time", None) or
-                                  getattr(f, "depart", None) or getattr(f, "departs", None) or "–"),
-                    "arrival": (getattr(f, "arrival", None) or getattr(f, "arrival_time", None) or
-                                getattr(f, "arrive", None) or getattr(f, "arrives", None) or "–"),
-                    "duration": (getattr(f, "duration", None) or getattr(f, "travel_time", None) or
-                                 getattr(f, "flight_time", None) or "–"),
-                    "stops": getattr(f, "stops", None) or getattr(f, "num_stops", None),
-                }
+            candidates.append({
+                "price": price,
+                "airline": getattr(f, "name", None) or "–",
+                "departure": getattr(f, "departure", None) or "–",
+                "arrival": getattr(f, "arrival", None) or "–",
+                "duration": getattr(f, "duration", None) or "–",
+                "stops": getattr(f, "stops", None),
+            })
+
+        if not candidates:
+            return None
+
+        # Sort by price
+        candidates.sort(key=lambda x: x["price"])
+
+        # Prefer cheapest flight with full details, fallback to cheapest overall
+        has_details = [c for c in candidates if c["departure"] != "–" and c["airline"] != "–"]
+        best = has_details[0] if has_details else candidates[0]
+        best["price"] = candidates[0]["price"]  # always use cheapest price
         return best
     except Exception as e:
         print(f"  ⚠ {origin}→{destination} on {date}: {e}")
