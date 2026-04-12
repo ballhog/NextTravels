@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bangkok Flight Tracker</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f5; color: #1a1a1a; }
+  header { background: linear-gradient(135deg,#003faa,#0088ee); color: #fff; padding: 20px 24px; }
+  header h1 { font-size: 20px; font-weight: 600; }
+  header p  { font-size: 13px; opacity: .8; margin-top: 4px; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 20px 16px; }
+  .card { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+  .card h2 { font-size: 15px; font-weight: 600; color: #333; margin-bottom: 14px; }
+  .best-deal { background: #e8f5e9; border-left: 4px solid #22863a; padding: 14px 18px; border-radius: 0 10px 10px 0; margin-bottom: 12px; }
+  .best-deal .amount { font-size: 26px; font-weight: 700; color: #1a6b2a; }
+  .best-deal .label  { font-size: 13px; color: #2d8a3e; margin-top: 2px; }
+  .calendar-grid { display: grid; grid-template-columns: 160px repeat(4, 1fr); gap: 4px; font-size: 13px; }
+  .calendar-grid .header { font-weight: 600; color: #555; padding: 6px 8px; background: #f0f4ff; border-radius: 4px; text-align: center; }
+  .calendar-grid .row-label { font-weight: 600; color: #333; padding: 6px 8px; display: flex; align-items: center; }
+  .calendar-grid .cell { padding: 8px 6px; border-radius: 6px; text-align: center; font-weight: 700; font-size: 13px; cursor: pointer; transition: opacity .15s; }
+  .calendar-grid .cell:hover { opacity: .8; }
+  .green  { background: #c8f7c5; color: #1a6b2a; }
+  .yellow { background: #fff3cd; color: #856404; }
+  .red    { background: #ffd6d6; color: #a00; }
+  .gray   { background: #f0f0f0; color: #999; }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .filter-btn { padding: 6px 14px; border-radius: 20px; border: 1.5px solid #ccc; background: #fff; font-size: 13px; cursor: pointer; transition: all .15s; }
+  .filter-btn.active { background: #0055cc; color: #fff; border-color: #0055cc; }
+  .chart-wrap { position: relative; height: 260px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { padding: 8px 10px; text-align: left; background: #f0f4ff; font-weight: 600; color: #555; }
+  td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; }
+  tr:last-child td { border-bottom: none; }
+  .badge { font-size: 10px; padding: 2px 6px; border-radius: 8px; font-weight: 700; margin-left: 4px; }
+  .badge-green  { background: #e8f5e9; color: #1a6b2a; }
+  .badge-red    { background: #ffeaea; color: #a00; }
+  .badge-atl    { background: #fff3b0; color: #8a6200; }
+  .tag-peak { font-size: 10px; color: #856404; margin-left: 4px; }
+  .loading { text-align: center; padding: 40px; color: #888; }
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .stat { background: #fff; border-radius: 10px; padding: 14px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.07); }
+  .stat .val { font-size: 22px; font-weight: 700; color: #0044bb; }
+  .stat .lbl { font-size: 12px; color: #888; margin-top: 2px; }
+  @media(max-width:600px) { .calendar-grid { grid-template-columns: 120px repeat(4,1fr); font-size:11px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>✈️ Bangkok Flight Tracker</h1>
+  <p id="last-updated">Loading...</p>
+</header>
+
+<div class="container">
+
+  <div id="best-deals-row" class="stat-row"></div>
+
+  <div class="card">
+    <h2>📅 Price Calendar</h2>
+    <div id="calendar" class="loading">Loading prices...</div>
+  </div>
+
+  <div class="card">
+    <h2>📈 Price Trend</h2>
+    <div class="filters" id="chart-filters"></div>
+    <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+  </div>
+
+  <div class="card">
+    <h2>📊 Today's Prices</h2>
+    <div class="filters" id="window-filters"></div>
+    <div id="price-table"></div>
+  </div>
+
+</div>
+
+<script>
+// ── Config — update YOUR GitHub username/repo ──────────────────────────────
+const PRICES_URL = "https://raw.githubusercontent.com/ballhog/NextTravels/main/workflows/prices.json";
+const HOME_AIRPORTS = ["DTW","LAX","CLE","YYZ"];
+const WINDOWS = [
+  {label:"Oct 24 – Nov 4",  key:"2026-10-24", peak:false},
+  {label:"Nov 21 – Dec 2",  key:"2026-11-21", peak:false},
+  {label:"Dec 19 – Dec 30", key:"2026-12-19", peak:true},
+  {label:"Jan 20 – Jan 30", key:"2027-01-20", peak:false},
+  {label:"Feb 3 – Feb 13",  key:"2027-02-03", peak:false},
+];
+const COLORS = ["#0066cc","#e85d04","#2d9b44","#9b2dca"];
+
+let priceData = {};
+let trendChart = null;
+let activeWindow = WINDOWS[0].key;
+let activeAirports = [...HOME_AIRPORTS];
+
+async function loadData() {
+  try {
+    const r = await fetch(PRICES_URL + "?t=" + Date.now());
+    priceData = await r.json();
+    render();
+  } catch(e) {
+    document.getElementById("calendar").innerHTML = `<p style="color:#c00">Failed to load prices.json — make sure GitHub Pages is enabled and the repo is public. Error: ${e.message}</p>`;
+  }
+}
+
+function getDayKeys() {
+  return Object.keys(priceData).filter(k => k !== "latest" && k.match(/^\d{4}-\d{2}-\d{2}$/)).sort();
+}
+
+function getPrice(dayKey, windowKey, airport) {
+  return priceData[dayKey]?.[windowKey]?.[airport]?.total_usd || null;
+}
+
+function getLatestPrice(windowKey, airport) {
+  return priceData["latest"]?.[windowKey]?.[airport]?.total_usd || null;
+}
+
+function getAllTimeMin(windowKey, airport) {
+  let min = Infinity;
+  for (const d of getDayKeys()) {
+    const p = getPrice(d, windowKey, airport);
+    if (p && p < min) min = p;
+  }
+  return min === Infinity ? null : min;
+}
+
+function priceColor(price, mn, mx) {
+  if (!price) return "gray";
+  const r = mx === mn ? 0.5 : (price - mn) / (mx - mn);
+  if (r < 0.33) return "green";
+  if (r < 0.66) return "yellow";
+  return "red";
+}
+
+function render() {
+  const latest = priceData["latest"] || {};
+  const days = getDayKeys();
+  if (days.length > 0) {
+    const lastDay = days[days.length - 1];
+    document.getElementById("last-updated").textContent = `Last updated: ${lastDay} · ${days.length} days of history`;
+  }
+
+  renderBestDeals(latest);
+  renderCalendar(latest);
+  renderTrendChart();
+  renderPriceTable(latest);
+  renderChartFilters();
+  renderWindowFilters();
+}
+
+function renderBestDeals(latest) {
+  let best = null, bestScore = null;
+  for (const w of WINDOWS) {
+    for (const h of HOME_AIRPORTS) {
+      const p = latest[w.key]?.[h]?.total_usd;
+      const s = latest[w.key]?.[h]?.score;
+      if (p && (!best || p < best.p)) best = {p, h, label: w.label};
+      if (s && s < 9999 && (!bestScore || s < bestScore.s)) bestScore = {s, p: latest[w.key]?.[h]?.total_usd, h, label: w.label};
+    }
+  }
+  let html = "";
+  if (best) html += `<div class="stat"><div class="val">$${best.p.toLocaleString()}</div><div class="lbl">💰 Cheapest today · ${best.h} → BKK · ${best.label}</div></div>`;
+  if (bestScore && (bestScore.h !== best?.h || bestScore.label !== best?.label)) {
+    html += `<div class="stat"><div class="val">$${bestScore.p?.toLocaleString()}</div><div class="lbl">⭐ Best value score · ${bestScore.h} → BKK · ${bestScore.label}</div></div>`;
+  }
+  const days = getDayKeys();
+  if (days.length > 1) {
+    const yesterday = days[days.length - 2];
+    let drops = 0;
+    for (const w of WINDOWS) for (const h of HOME_AIRPORTS) {
+      const today = getLatestPrice(w.key, h);
+      const prev = getPrice(yesterday, w.key, h);
+      if (today && prev && (prev - today) > 20) drops++;
+    }
+    if (drops > 0) html += `<div class="stat"><div class="val" style="color:#22863a">${drops}</div><div class="lbl">📉 Routes cheaper than yesterday</div></div>`;
+  }
+  document.getElementById("best-deals-row").innerHTML = html;
+}
+
+function renderCalendar(latest) {
+  // Collect all prices for color scaling
+  const allPrices = WINDOWS.flatMap(w => HOME_AIRPORTS.map(h => latest[w.key]?.[h]?.total_usd)).filter(Boolean);
+  const mn = Math.min(...allPrices), mx = Math.max(...allPrices);
+
+  let html = `<div class="calendar-grid">
+    <div class="header" style="text-align:left">Window</div>
+    ${HOME_AIRPORTS.map(h => `<div class="header">${h}</div>`).join("")}`;
+
+  for (const w of WINDOWS) {
+    html += `<div class="row-label">${w.label}${w.peak ? ' <span class="tag-peak">⚠peak</span>' : ""}</div>`;
+    for (const h of HOME_AIRPORTS) {
+      const p = latest[w.key]?.[h]?.total_usd;
+      const atl = getAllTimeMin(w.key, h);
+      const cls = priceColor(p, mn, mx);
+      const atl_badge = (p && atl && p <= atl) ? "🏆" : "";
+      const kurl = `https://www.kayak.com/flights/${h}-BKK/${w.key}/1adults/economy`;
+      html += `<div class="cell ${cls}" onclick="window.open('${kurl}','_blank')" title="Click to book on Kayak">${p ? "$"+p.toLocaleString() : "–"}${atl_badge}</div>`;
+    }
+  }
+  html += "</div><p style='font-size:11px;color:#aaa;margin-top:8px'>Click any cell to book on Kayak · 🏆 = all-time low</p>";
+  document.getElementById("calendar").innerHTML = html;
+}
+
+function renderChartFilters() {
+  const wrap = document.getElementById("chart-filters");
+  let html = "";
+  for (const h of HOME_AIRPORTS) {
+    const active = activeAirports.includes(h) ? "active" : "";
+    html += `<button class="filter-btn ${active}" onclick="toggleAirport('${h}')">${h}</button>`;
+  }
+  wrap.innerHTML = html;
+}
+
+function renderWindowFilters() {
+  const wrap = document.getElementById("window-filters");
+  let html = "";
+  for (const w of WINDOWS) {
+    const active = activeWindow === w.key ? "active" : "";
+    html += `<button class="filter-btn ${active}" onclick="setWindow('${w.key}')">${w.label}</button>`;
+  }
+  wrap.innerHTML = html;
+}
+
+function toggleAirport(h) {
+  if (activeAirports.includes(h)) {
+    if (activeAirports.length > 1) activeAirports = activeAirports.filter(a => a !== h);
+  } else {
+    activeAirports.push(h);
+  }
+  renderChartFilters();
+  renderTrendChart();
+}
+
+function setWindow(key) {
+  activeWindow = key;
+  renderWindowFilters();
+  renderPriceTable(priceData["latest"] || {});
+}
+
+function renderTrendChart() {
+  const days = getDayKeys().slice(-30);
+  const datasets = activeAirports.map((h, i) => ({
+    label: h,
+    data: days.map(d => getPrice(d, activeWindow, h)),
+    borderColor: COLORS[i % COLORS.length],
+    backgroundColor: COLORS[i % COLORS.length] + "22",
+    tension: 0.3,
+    pointRadius: 3,
+    fill: false,
+    spanGaps: true,
+  }));
+
+  if (trendChart) trendChart.destroy();
+  trendChart = new Chart(document.getElementById("trendChart"), {
+    type: "line",
+    data: { labels: days.map(d => d.slice(5)), datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: "top" }, tooltip: { callbacks: { label: ctx => `$${ctx.raw?.toLocaleString()}` }}},
+      scales: {
+        y: { ticks: { callback: v => "$"+v.toLocaleString() }, grid: { color: "#f0f0f0" }},
+        x: { grid: { display: false }}
+      }
+    }
+  });
+}
+
+function renderPriceTable(latest) {
+  const w = WINDOWS.find(w => w.key === activeWindow);
+  if (!w) return;
+  const days = getDayKeys();
+  const yesterday = days.length > 1 ? days[days.length - 2] : null;
+
+  let html = `<table><thead><tr>
+    <th>From</th><th>Economy RT</th><th>vs Yesterday</th><th>Premium Eco</th><th>DMK Airport</th><th>Open Jaw</th><th>Score</th><th>ATL</th><th>Book</th>
+  </tr></thead><tbody>`;
+
+  for (const h of HOME_AIRPORTS) {
+    const d = latest[w.key]?.[h] || {};
+    const usd = d.total_usd;
+    const prev = yesterday ? getPrice(yesterday, w.key, h) : null;
+    const atl = getAllTimeMin(w.key, h);
+    const diff = (usd && prev) ? usd - prev : null;
+    const diffHtml = diff !== null ? `<span class="badge ${diff < -20 ? 'badge-green' : diff > 20 ? 'badge-red' : ''}">${diff > 0 ? '+' : ''}$${diff}</span>` : "–";
+    const atlBadge = (usd && atl && usd <= atl) ? '<span class="badge badge-atl">🏆 ATL</span>' : (atl ? `<span style="font-size:11px;color:#888">$${atl.toLocaleString()}</span>` : "–");
+    const kurl = `https://www.kayak.com/flights/${h}-BKK/${w.key}/1adults/economy`;
+    const prem = d.premium_total_usd;
+    const dmk  = d.dmk_total_usd;
+    const oj   = d.openjaw_total_usd;
+
+    html += `<tr>
+      <td><strong>${h}</strong></td>
+      <td>${usd ? "<strong>$"+usd.toLocaleString()+"</strong>" : "–"}</td>
+      <td>${diffHtml}</td>
+      <td>${prem ? "$"+prem.toLocaleString() : "–"}</td>
+      <td>${dmk ? (dmk < (usd||99999) ? '<span style="color:#22863a;font-weight:700">$'+dmk.toLocaleString()+' ✓</span>' : "$"+dmk.toLocaleString()) : "–"}</td>
+      <td>${oj ? "$"+oj.toLocaleString() : "–"}</td>
+      <td style="color:#888;font-size:12px">${d.score && d.score < 9999 ? d.score : "–"}</td>
+      <td>${atlBadge}</td>
+      <td><a href="${kurl}" target="_blank" style="color:#0055cc;font-size:12px;font-weight:600">Kayak →</a></td>
+    </tr>`;
+  }
+  html += "</tbody></table>";
+  document.getElementById("price-table").innerHTML = html;
+}
+
+loadData();
+setInterval(loadData, 5 * 60 * 1000); // refresh every 5 min
+</script>
+</body>
+</html>
