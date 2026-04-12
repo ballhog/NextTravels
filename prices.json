@@ -1,0 +1,396 @@
+{
+  "latest": {
+    "2026-10-24": {
+      "DTW": {
+        "legs": [
+          [
+            "DTW \u2192 Bangkok",
+            600
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            44
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            99
+          ],
+          [
+            "Phuket \u2192 DTW",
+            705
+          ]
+        ],
+        "total": 1448
+      },
+      "ORD": {
+        "legs": [
+          [
+            "ORD \u2192 Bangkok",
+            581
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            44
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            99
+          ],
+          [
+            "Phuket \u2192 ORD",
+            673
+          ]
+        ],
+        "total": 1397
+      },
+      "YYZ": {
+        "legs": [
+          [
+            "YYZ \u2192 Bangkok",
+            740
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            44
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            99
+          ],
+          [
+            "Phuket \u2192 YYZ",
+            867
+          ]
+        ],
+        "total": 1750
+      }
+    },
+    "2026-11-20": {
+      "DTW": {
+        "legs": [
+          [
+            "DTW \u2192 Bangkok",
+            653
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            101
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            124
+          ],
+          [
+            "Phuket \u2192 DTW",
+            901
+          ]
+        ],
+        "total": 1779
+      },
+      "ORD": {
+        "legs": [
+          [
+            "ORD \u2192 Bangkok",
+            536
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            101
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            124
+          ],
+          [
+            "Phuket \u2192 ORD",
+            677
+          ]
+        ],
+        "total": 1438
+      },
+      "YYZ": {
+        "legs": [
+          [
+            "YYZ \u2192 Bangkok",
+            740
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            101
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            124
+          ],
+          [
+            "Phuket \u2192 YYZ",
+            891
+          ]
+        ],
+        "total": 1856
+      }
+    },
+    "2026-12-26": {
+      "DTW": {
+        "legs": [
+          [
+            "DTW \u2192 Bangkok",
+            1039
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            90
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            99
+          ],
+          [
+            "Phuket \u2192 DTW",
+            null
+          ]
+        ],
+        "total": null
+      },
+      "ORD": {
+        "legs": [
+          [
+            "ORD \u2192 Bangkok",
+            790
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            90
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            99
+          ],
+          [
+            "Phuket \u2192 ORD",
+            848
+          ]
+        ],
+        "total": 1827
+      },
+      "YYZ": {
+        "legs": [
+          [
+            "YYZ \u2192 Bangkok",
+            1049
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            90
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            99
+          ],
+          [
+            "Phuket \u2192 YYZ",
+            1140
+          ]
+        ],
+        "total": 2378
+      }
+    }
+  },
+  "2026-04-12": {
+    "2026-10-24": {
+      "DTW": {
+        "legs": [
+          [
+            "DTW \u2192 Bangkok",
+            600
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            44
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            99
+          ],
+          [
+            "Phuket \u2192 DTW",
+            705
+          ]
+        ],
+        "total": 1448
+      },
+      "ORD": {
+        "legs": [
+          [
+            "ORD \u2192 Bangkok",
+            581
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            44
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            99
+          ],
+          [
+            "Phuket \u2192 ORD",
+            673
+          ]
+        ],
+        "total": 1397
+      },
+      "YYZ": {
+        "legs": [
+          [
+            "YYZ \u2192 Bangkok",
+            740
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            44
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            99
+          ],
+          [
+            "Phuket \u2192 YYZ",
+            867
+          ]
+        ],
+        "total": 1750
+      }
+    },
+    "2026-11-20": {
+      "DTW": {
+        "legs": [
+          [
+            "DTW \u2192 Bangkok",
+            653
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            101
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            124
+          ],
+          [
+            "Phuket \u2192 DTW",
+            901
+          ]
+        ],
+        "total": 1779
+      },
+      "ORD": {
+        "legs": [
+          [
+            "ORD \u2192 Bangkok",
+            536
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            101
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            124
+          ],
+          [
+            "Phuket \u2192 ORD",
+            677
+          ]
+        ],
+        "total": 1438
+      },
+      "YYZ": {
+        "legs": [
+          [
+            "YYZ \u2192 Bangkok",
+            740
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            101
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            124
+          ],
+          [
+            "Phuket \u2192 YYZ",
+            891
+          ]
+        ],
+        "total": 1856
+      }
+    },
+    "2026-12-26": {
+      "DTW": {
+        "legs": [
+          [
+            "DTW \u2192 Bangkok",
+            1039
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            90
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            99
+          ],
+          [
+            "Phuket \u2192 DTW",
+            null
+          ]
+        ],
+        "total": null
+      },
+      "ORD": {
+        "legs": [
+          [
+            "ORD \u2192 Bangkok",
+            790
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            90
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            99
+          ],
+          [
+            "Phuket \u2192 ORD",
+            848
+          ]
+        ],
+        "total": 1827
+      },
+      "YYZ": {
+        "legs": [
+          [
+            "YYZ \u2192 Bangkok",
+            1049
+          ],
+          [
+            "Bangkok \u2192 Chiang Mai",
+            90
+          ],
+          [
+            "Chiang Mai \u2192 Phuket",
+            99
+          ],
+          [
+            "Phuket \u2192 YYZ",
+            1140
+          ]
+        ],
+        "total": 2378
+      }
+    }
+  }
+}
