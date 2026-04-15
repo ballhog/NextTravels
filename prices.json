@@ -8,11 +8,11 @@
             "date": "2026-12-19",
             "flight": {
               "price": 1506,
-              "airline": "Alaska, China Airlines",
-              "departure": "4:46 PM on Sat, Dec 19",
-              "arrival": "9:50 AM on Mon, Dec 21",
-              "duration": "29 hr 4 min",
-              "stops": 2,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/DTW-BKK/2026-12-19/1adults/economy",
@@ -24,7 +24,7 @@
             "label": "Bangkok \u2192 DTW (Return)",
             "date": "2026-12-30",
             "flight": {
-              "price": 859,
+              "price": 857,
               "airline": "Philippine Airlines, Alaska",
               "departure": "10:50 PM on Wed, Dec 30",
               "arrival": "5:18 AM on Fri, Jan 1",
@@ -38,13 +38,13 @@
             "cabin": "economy"
           }
         ],
-        "total": 2365,
-        "total_usd": 2365,
-        "score": 2685,
-        "premium_total_usd": 3779,
-        "upgrade_cost": 1414,
-        "dmk_total_usd": 6019,
-        "openjaw_total_usd": null,
+        "total": 2363,
+        "total_usd": 2363,
+        "score": 2603,
+        "premium_total_usd": 3773,
+        "upgrade_cost": 1410,
+        "dmk_total_usd": 6026,
+        "openjaw_total_usd": 2497,
         "connector_cost": null
       },
       "LAX": {
@@ -53,11 +53,11 @@
             "label": "LAX \u2192 Bangkok",
             "date": "2026-12-19",
             "flight": {
-              "price": 945,
-              "airline": "Qatar Airways",
-              "departure": "3:10 PM on Sat, Dec 19",
-              "arrival": "1:05 PM on Mon, Dec 21",
-              "duration": "30 hr 55 min",
+              "price": 983,
+              "airline": "Asiana Airlines",
+              "departure": "9:10 AM on Sat, Dec 19",
+              "arrival": "10:00 PM on Sun, Dec 20",
+              "duration": "21 hr 50 min",
               "stops": 1,
               "nonstop_price": null,
               "nonstop_airline": null,
@@ -70,12 +70,12 @@
             "label": "Bangkok \u2192 LAX (Return)",
             "date": "2026-12-30",
             "flight": {
-              "price": 786,
-              "airline": "\u2013",
-              "departure": "\u2013",
-              "arrival": "\u2013",
-              "duration": "\u2013",
-              "stops": "Unknown",
+              "price": 785,
+              "airline": "THAI, EVA Air",
+              "departure": "5:30 PM on Wed, Dec 30",
+              "arrival": "7:35 PM on Wed, Dec 30",
+              "duration": "17 hr 5 min",
+              "stops": 1,
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/BKK-LAX/2026-12-30/1adults/economy",
@@ -84,13 +84,13 @@
             "cabin": "economy"
           }
         ],
-        "total": 1731,
-        "total_usd": 1731,
-        "score": 1891,
-        "premium_total_usd": 2884,
-        "upgrade_cost": 1153,
-        "dmk_total_usd": 4262,
-        "openjaw_total_usd": 1765,
+        "total": 1768,
+        "total_usd": 1768,
+        "score": 1928,
+        "premium_total_usd": 2882,
+        "upgrade_cost": 1114,
+        "dmk_total_usd": 4286,
+        "openjaw_total_usd": 1802,
         "connector_cost": null
       },
       "CLE": {
@@ -100,11 +100,11 @@
             "date": "2026-12-19",
             "flight": {
               "price": 1376,
-              "airline": "Alaska, China Airlines",
-              "departure": "5:49 PM on Sat, Dec 19",
-              "arrival": "9:50 AM on Mon, Dec 21",
-              "duration": "28 hr 1 min",
-              "stops": 2,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/CLE-BKK/2026-12-19/1adults/economy",
@@ -116,7 +116,7 @@
             "label": "Bangkok \u2192 CLE (Return)",
             "date": "2026-12-30",
             "flight": {
-              "price": 842,
+              "price": 841,
               "airline": "Qatar Airways, American",
               "departure": "8:30 PM on Wed, Dec 30",
               "arrival": "3:40 PM on Thu, Dec 31",
@@ -130,12 +130,12 @@
             "cabin": "economy"
           }
         ],
-        "total": 2218,
-        "total_usd": 2218,
-        "score": 2538,
-        "premium_total_usd": 3634,
-        "upgrade_cost": 1416,
-        "dmk_total_usd": 7441,
+        "total": 2217,
+        "total_usd": 2217,
+        "score": 2457,
+        "premium_total_usd": 3632,
+        "upgrade_cost": 1415,
+        "dmk_total_usd": 7437,
         "openjaw_total_usd": null,
         "connector_cost": null
       },
@@ -145,7 +145,7 @@
             "label": "YYZ \u2192 Bangkok",
             "date": "2026-12-19",
             "flight": {
-              "price": 1230,
+              "price": 1228,
               "airline": "Air Canada, Air India",
               "departure": "11:10 PM on Sat, Dec 19",
               "arrival": "7:50 AM on Tue, Dec 22",
@@ -162,12 +162,12 @@
             "label": "Bangkok \u2192 YYZ (Return)",
             "date": "2026-12-30",
             "flight": {
-              "price": 744,
-              "airline": "\u2013",
-              "departure": "\u2013",
-              "arrival": "\u2013",
-              "duration": "\u2013",
-              "stops": "Unknown",
+              "price": 743,
+              "airline": "THAI, EVA Air",
+              "departure": "12:50 PM on Wed, Dec 30",
+              "arrival": "8:20 PM on Wed, Dec 30",
+              "duration": "19 hr 30 min",
+              "stops": 1,
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/BKK-YYZ/2026-12-30/1adults/economy",
@@ -176,13 +176,13 @@
             "cabin": "economy"
           }
         ],
-        "total": 1974,
-        "total_usd": 1440,
-        "score": 1680,
-        "premium_total_usd": 2686,
-        "upgrade_cost": 1246,
-        "dmk_total_usd": 3723,
-        "openjaw_total_usd": 1544,
+        "total": 1971,
+        "total_usd": 1438,
+        "score": 1678,
+        "premium_total_usd": 2681,
+        "upgrade_cost": 1243,
+        "dmk_total_usd": 3168,
+        "openjaw_total_usd": 1542,
         "connector_cost": null
       }
     },
@@ -193,12 +193,12 @@
             "label": "DTW \u2192 Bangkok",
             "date": "2027-01-22",
             "flight": {
-              "price": 699,
-              "airline": "Alaska, China Airlines",
-              "departure": "4:46 PM on Fri, Jan 22",
-              "arrival": "9:50 AM on Mon, Jan 25",
-              "duration": "53 hr 4 min",
-              "stops": 2,
+              "price": 743,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/DTW-BKK/2027-01-22/1adults/economy",
@@ -210,11 +210,11 @@
             "label": "Bangkok \u2192 DTW (Return)",
             "date": "2027-02-02",
             "flight": {
-              "price": 613,
-              "airline": "Air Canada, United",
-              "departure": "8:15 AM on Tue, Feb 2",
-              "arrival": "6:22 PM on Tue, Feb 2",
-              "duration": "22 hr 7 min",
+              "price": 662,
+              "airline": "Philippine Airlines, Alaska",
+              "departure": "10:50 PM on Tue, Feb 2",
+              "arrival": "3:48 PM on Thu, Feb 4",
+              "duration": "52 hr 58 min",
               "stops": 2,
               "nonstop_price": null,
               "nonstop_airline": null,
@@ -224,12 +224,12 @@
             "cabin": "economy"
           }
         ],
-        "total": 1312,
-        "total_usd": 1312,
-        "score": 1632,
-        "premium_total_usd": 2598,
-        "upgrade_cost": 1286,
-        "dmk_total_usd": 5713,
+        "total": 1405,
+        "total_usd": 1405,
+        "score": 1645,
+        "premium_total_usd": 2710,
+        "upgrade_cost": 1305,
+        "dmk_total_usd": 5711,
         "openjaw_total_usd": null,
         "connector_cost": null
       },
@@ -239,7 +239,7 @@
             "label": "LAX \u2192 Bangkok",
             "date": "2027-01-22",
             "flight": {
-              "price": 460,
+              "price": 470,
               "airline": "Korean Air, Asiana Airlines",
               "departure": "10:50 PM on Fri, Jan 22",
               "arrival": "10:00 PM on Sun, Jan 24",
@@ -257,11 +257,11 @@
             "date": "2027-02-02",
             "flight": {
               "price": 527,
-              "airline": "Korean Air",
-              "departure": "11:15 PM on Tue, Feb 2",
-              "arrival": "8:30 AM on Wed, Feb 3",
-              "duration": "24 hr 15 min",
-              "stops": 1,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/BKK-LAX/2027-02-02/1adults/economy",
@@ -270,13 +270,13 @@
             "cabin": "economy"
           }
         ],
-        "total": 987,
-        "total_usd": 987,
-        "score": 1147,
-        "premium_total_usd": 2253,
-        "upgrade_cost": 1266,
-        "dmk_total_usd": 2859,
-        "openjaw_total_usd": 1131,
+        "total": 997,
+        "total_usd": 997,
+        "score": 1157,
+        "premium_total_usd": 2243,
+        "upgrade_cost": 1246,
+        "dmk_total_usd": 2881,
+        "openjaw_total_usd": 1055,
         "connector_cost": null
       },
       "CLE": {
@@ -291,12 +291,12 @@
             "label": "Bangkok \u2192 CLE (Return)",
             "date": "2027-02-02",
             "flight": {
-              "price": 610,
-              "airline": "Air Canada, United",
-              "departure": "8:15 AM on Tue, Feb 2",
-              "arrival": "6:20 PM on Tue, Feb 2",
-              "duration": "22 hr 5 min",
-              "stops": 2,
+              "price": 650,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/BKK-CLE/2027-02-02/1adults/economy",
@@ -320,12 +320,12 @@
             "label": "YYZ \u2192 Bangkok",
             "date": "2027-01-22",
             "flight": {
-              "price": 744,
-              "airline": "Air Canada",
-              "departure": "6:00 AM on Fri, Jan 22",
-              "arrival": "6:30 AM on Sun, Jan 24",
-              "duration": "36 hr 30 min",
-              "stops": 1,
+              "price": 754,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/YYZ-BKK/2027-01-22/1adults/economy",
@@ -337,12 +337,12 @@
             "label": "Bangkok \u2192 YYZ (Return)",
             "date": "2027-02-02",
             "flight": {
-              "price": 628,
-              "airline": "Air Canada",
-              "departure": "8:15 AM on Tue, Feb 2",
-              "arrival": "11:52 PM on Tue, Feb 2",
-              "duration": "27 hr 37 min",
-              "stops": 1,
+              "price": 691,
+              "airline": "JAL, WestJet",
+              "departure": "8:05 AM on Tue, Feb 2",
+              "arrival": "9:55 PM on Tue, Feb 2",
+              "duration": "25 hr 50 min",
+              "stops": 2,
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/BKK-YYZ/2027-02-02/1adults/economy",
@@ -351,13 +351,13 @@
             "cabin": "economy"
           }
         ],
-        "total": 1372,
-        "total_usd": 1001,
-        "score": 1161,
-        "premium_total_usd": 2139,
-        "upgrade_cost": 1138,
-        "dmk_total_usd": 2851,
-        "openjaw_total_usd": 1025,
+        "total": 1445,
+        "total_usd": 1054,
+        "score": 1294,
+        "premium_total_usd": 2135,
+        "upgrade_cost": 1081,
+        "dmk_total_usd": 3512,
+        "openjaw_total_usd": 1066,
         "connector_cost": null
       }
     },
@@ -368,12 +368,12 @@
             "label": "DTW \u2192 Bangkok",
             "date": "2027-01-29",
             "flight": {
-              "price": 699,
-              "airline": "Alaska, China Airlines",
-              "departure": "4:46 PM on Fri, Jan 29",
-              "arrival": "9:50 AM on Mon, Feb 1",
-              "duration": "53 hr 4 min",
-              "stops": 2,
+              "price": 743,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/DTW-BKK/2027-01-29/1adults/economy",
@@ -385,11 +385,11 @@
             "label": "Bangkok \u2192 DTW (Return)",
             "date": "2027-02-09",
             "flight": {
-              "price": 613,
-              "airline": "Air Canada, United",
-              "departure": "8:15 AM on Tue, Feb 9",
-              "arrival": "6:22 PM on Tue, Feb 9",
-              "duration": "22 hr 7 min",
+              "price": 656,
+              "airline": "China Airlines, Alaska",
+              "departure": "5:50 PM on Tue, Feb 9",
+              "arrival": "3:48 PM on Wed, Feb 10",
+              "duration": "33 hr 58 min",
               "stops": 2,
               "nonstop_price": null,
               "nonstop_airline": null,
@@ -399,12 +399,12 @@
             "cabin": "economy"
           }
         ],
-        "total": 1312,
-        "total_usd": 1312,
-        "score": 1632,
-        "premium_total_usd": 2603,
-        "upgrade_cost": 1291,
-        "dmk_total_usd": 5713,
+        "total": 1399,
+        "total_usd": 1399,
+        "score": 1639,
+        "premium_total_usd": 2710,
+        "upgrade_cost": 1311,
+        "dmk_total_usd": 5711,
         "openjaw_total_usd": null,
         "connector_cost": null
       },
@@ -414,12 +414,12 @@
             "label": "LAX \u2192 Bangkok",
             "date": "2027-01-29",
             "flight": {
-              "price": 460,
-              "airline": "\u2013",
-              "departure": "\u2013",
-              "arrival": "\u2013",
-              "duration": "\u2013",
-              "stops": "Unknown",
+              "price": 470,
+              "airline": "Korean Air, Asiana Airlines",
+              "departure": "10:50 PM on Fri, Jan 29",
+              "arrival": "10:00 PM on Sun, Jan 31",
+              "duration": "32 hr 10 min",
+              "stops": 1,
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/LAX-BKK/2027-01-29/1adults/economy",
@@ -431,12 +431,12 @@
             "label": "Bangkok \u2192 LAX (Return)",
             "date": "2027-02-09",
             "flight": {
-              "price": 478,
-              "airline": "THAI, Air Canada, United",
-              "departure": "8:00 AM on Tue, Feb 9",
-              "arrival": "6:00 PM on Tue, Feb 9",
-              "duration": "25 hr",
-              "stops": 2,
+              "price": 548,
+              "airline": "China Airlines",
+              "departure": "5:50 PM on Tue, Feb 9",
+              "arrival": "7:25 PM on Tue, Feb 9",
+              "duration": "16 hr 35 min",
+              "stops": 1,
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/BKK-LAX/2027-02-09/1adults/economy",
@@ -445,13 +445,13 @@
             "cabin": "economy"
           }
         ],
-        "total": 938,
-        "total_usd": 938,
+        "total": 1018,
+        "total_usd": 1018,
         "score": 1178,
-        "premium_total_usd": 2245,
-        "upgrade_cost": 1307,
-        "dmk_total_usd": 2859,
-        "openjaw_total_usd": 1125,
+        "premium_total_usd": 2243,
+        "upgrade_cost": 1225,
+        "dmk_total_usd": 2881,
+        "openjaw_total_usd": 1134,
         "connector_cost": null
       },
       "CLE": {
@@ -466,7 +466,7 @@
             "label": "Bangkok \u2192 CLE (Return)",
             "date": "2027-02-09",
             "flight": {
-              "price": 610,
+              "price": 650,
               "airline": "Air Canada, United",
               "departure": "8:15 AM on Tue, Feb 9",
               "arrival": "6:20 PM on Tue, Feb 9",
@@ -495,12 +495,12 @@
             "label": "YYZ \u2192 Bangkok",
             "date": "2027-01-29",
             "flight": {
-              "price": 744,
-              "airline": "\u2013",
-              "departure": "\u2013",
-              "arrival": "\u2013",
-              "duration": "\u2013",
-              "stops": "Unknown",
+              "price": 754,
+              "airline": "Turkish Airlines, THAI",
+              "departure": "8:10 PM on Fri, Jan 29",
+              "arrival": "5:20 AM on Sun, Jan 31",
+              "duration": "21 hr 10 min",
+              "stops": 1,
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/YYZ-BKK/2027-01-29/1adults/economy",
@@ -512,12 +512,12 @@
             "label": "Bangkok \u2192 YYZ (Return)",
             "date": "2027-02-09",
             "flight": {
-              "price": 628,
-              "airline": "Air Canada",
-              "departure": "8:15 AM on Tue, Feb 9",
-              "arrival": "5:58 AM on Wed, Feb 10",
-              "duration": "33 hr 43 min",
-              "stops": 2,
+              "price": 691,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/BKK-YYZ/2027-02-09/1adults/economy",
@@ -526,13 +526,13 @@
             "cabin": "economy"
           }
         ],
-        "total": 1372,
-        "total_usd": 1001,
-        "score": 1241,
-        "premium_total_usd": 2139,
-        "upgrade_cost": 1138,
-        "dmk_total_usd": 3519,
-        "openjaw_total_usd": 1025,
+        "total": 1445,
+        "total_usd": 1054,
+        "score": 1214,
+        "premium_total_usd": 2135,
+        "upgrade_cost": 1081,
+        "dmk_total_usd": 3512,
+        "openjaw_total_usd": 1066,
         "connector_cost": null
       }
     },
@@ -544,11 +544,11 @@
             "date": "2027-02-03",
             "flight": {
               "price": 527,
-              "airline": "\u2013",
-              "departure": "\u2013",
-              "arrival": "\u2013",
-              "duration": "\u2013",
-              "stops": "Unknown",
+              "airline": "Alaska, Philippine Airlines",
+              "departure": "4:46 PM on Wed, Feb 3",
+              "arrival": "12:05 PM on Fri, Feb 5",
+              "duration": "31 hr 19 min",
+              "stops": 2,
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/DTW-BKK/2027-02-03/1adults/economy",
@@ -560,7 +560,7 @@
             "label": "Bangkok \u2192 DTW (Return)",
             "date": "2027-02-14",
             "flight": {
-              "price": 663,
+              "price": 662,
               "airline": "Philippine Airlines, Alaska",
               "departure": "5:55 PM on Sun, Feb 14",
               "arrival": "3:48 PM on Tue, Feb 16",
@@ -574,12 +574,12 @@
             "cabin": "economy"
           }
         ],
-        "total": 1190,
-        "total_usd": 1190,
-        "score": 1430,
-        "premium_total_usd": 2775,
-        "upgrade_cost": 1585,
-        "dmk_total_usd": null,
+        "total": 1189,
+        "total_usd": 1189,
+        "score": 1509,
+        "premium_total_usd": 2769,
+        "upgrade_cost": 1580,
+        "dmk_total_usd": 5685,
         "openjaw_total_usd": null,
         "connector_cost": null
       },
@@ -606,12 +606,12 @@
             "label": "Bangkok \u2192 LAX (Return)",
             "date": "2027-02-14",
             "flight": {
-              "price": 549,
-              "airline": "\u2013",
-              "departure": "\u2013",
-              "arrival": "\u2013",
-              "duration": "\u2013",
-              "stops": "Unknown",
+              "price": 548,
+              "airline": "China Airlines",
+              "departure": "2:05 PM on Sun, Feb 14",
+              "arrival": "7:25 PM on Sun, Feb 14",
+              "duration": "20 hr 20 min",
+              "stops": 1,
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/BKK-LAX/2027-02-14/1adults/economy",
@@ -620,13 +620,13 @@
             "cabin": "economy"
           }
         ],
-        "total": 946,
-        "total_usd": 946,
-        "score": 1106,
-        "premium_total_usd": 2237,
-        "upgrade_cost": 1291,
-        "dmk_total_usd": 2763,
-        "openjaw_total_usd": 1062,
+        "total": 945,
+        "total_usd": 945,
+        "score": 1105,
+        "premium_total_usd": 2235,
+        "upgrade_cost": 1290,
+        "dmk_total_usd": 2829,
+        "openjaw_total_usd": 1061,
         "connector_cost": null
       },
       "CLE": {
@@ -641,12 +641,12 @@
             "label": "Bangkok \u2192 CLE (Return)",
             "date": "2027-02-14",
             "flight": {
-              "price": 677,
-              "airline": "\u2013",
-              "departure": "\u2013",
-              "arrival": "\u2013",
-              "duration": "\u2013",
-              "stops": "Unknown",
+              "price": 676,
+              "airline": "China Airlines, Alaska",
+              "departure": "2:05 PM on Sun, Feb 14",
+              "arrival": "4:49 PM on Mon, Feb 15",
+              "duration": "38 hr 44 min",
+              "stops": 2,
               "nonstop_price": null,
               "nonstop_airline": null,
               "kayak_url": "https://www.kayak.com/flights/BKK-CLE/2027-02-14/1adults/economy",
@@ -670,7 +670,7 @@
             "label": "YYZ \u2192 Bangkok",
             "date": "2027-02-03",
             "flight": {
-              "price": 697,
+              "price": 749,
               "airline": "\u2013",
               "departure": "\u2013",
               "arrival": "\u2013",
@@ -687,7 +687,7 @@
             "label": "Bangkok \u2192 YYZ (Return)",
             "date": "2027-02-14",
             "flight": {
-              "price": 676,
+              "price": 724,
               "airline": "\u2013",
               "departure": "\u2013",
               "arrival": "\u2013",
@@ -701,13 +701,13 @@
             "cabin": "economy"
           }
         ],
-        "total": 1373,
-        "total_usd": 1001,
-        "score": 1161,
-        "premium_total_usd": 2119,
-        "upgrade_cost": 1118,
-        "dmk_total_usd": 2393,
-        "openjaw_total_usd": 1155,
+        "total": 1473,
+        "total_usd": 1074,
+        "score": 1234,
+        "premium_total_usd": 2115,
+        "upgrade_cost": 1041,
+        "dmk_total_usd": 3485,
+        "openjaw_total_usd": 1192,
         "connector_cost": null
       }
     },
@@ -3115,6 +3115,823 @@
         "upgrade_cost": 1118,
         "dmk_total_usd": 2393,
         "openjaw_total_usd": 1155,
+        "connector_cost": null
+      }
+    },
+    "ABQ_2026-12-19": {
+      "ABQ": {
+        "legs": [
+          {
+            "label": "ABQ \u2192 Bangkok",
+            "date": "2026-12-19",
+            "flight": null,
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 ABQ (Return)",
+            "date": "2026-12-28",
+            "flight": null,
+            "cabin": "economy"
+          }
+        ],
+        "total": null,
+        "total_usd": null,
+        "score": 9999,
+        "premium_total_usd": null,
+        "upgrade_cost": null,
+        "dmk_total_usd": null,
+        "openjaw_total_usd": null,
+        "connector_cost": 139
+      }
+    },
+    "ABQ_2027-01-22": {
+      "ABQ": {
+        "legs": [
+          {
+            "label": "ABQ \u2192 Bangkok",
+            "date": "2027-01-22",
+            "flight": null,
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 ABQ (Return)",
+            "date": "2027-01-31",
+            "flight": null,
+            "cabin": "economy"
+          }
+        ],
+        "total": null,
+        "total_usd": null,
+        "score": 9999,
+        "premium_total_usd": null,
+        "upgrade_cost": null,
+        "dmk_total_usd": null,
+        "openjaw_total_usd": null,
+        "connector_cost": 159
+      }
+    },
+    "ABQ_2027-01-29": {
+      "ABQ": {
+        "legs": [
+          {
+            "label": "ABQ \u2192 Bangkok",
+            "date": "2027-01-29",
+            "flight": null,
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 ABQ (Return)",
+            "date": "2027-02-07",
+            "flight": null,
+            "cabin": "economy"
+          }
+        ],
+        "total": null,
+        "total_usd": null,
+        "score": 9999,
+        "premium_total_usd": null,
+        "upgrade_cost": null,
+        "dmk_total_usd": null,
+        "openjaw_total_usd": null,
+        "connector_cost": 159
+      }
+    },
+    "ABQ_2027-02-03": {
+      "ABQ": {
+        "legs": [
+          {
+            "label": "ABQ \u2192 Bangkok",
+            "date": "2027-02-03",
+            "flight": null,
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 ABQ (Return)",
+            "date": "2027-02-12",
+            "flight": null,
+            "cabin": "economy"
+          }
+        ],
+        "total": null,
+        "total_usd": null,
+        "score": 9999,
+        "premium_total_usd": null,
+        "upgrade_cost": null,
+        "dmk_total_usd": null,
+        "openjaw_total_usd": null,
+        "connector_cost": 139
+      }
+    }
+  },
+  "2026-04-15": {
+    "2026-12-19": {
+      "DTW": {
+        "legs": [
+          {
+            "label": "DTW \u2192 Bangkok",
+            "date": "2026-12-19",
+            "flight": {
+              "price": 1506,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/DTW-BKK/2026-12-19/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+DTW+to+BKK+on+December+19+2026"
+            },
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 DTW (Return)",
+            "date": "2026-12-30",
+            "flight": {
+              "price": 857,
+              "airline": "Philippine Airlines, Alaska",
+              "departure": "10:50 PM on Wed, Dec 30",
+              "arrival": "5:18 AM on Fri, Jan 1",
+              "duration": "42 hr 28 min",
+              "stops": 2,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-DTW/2026-12-30/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+DTW+on+December+30+2026"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": 2363,
+        "total_usd": 2363,
+        "score": 2603,
+        "premium_total_usd": 3773,
+        "upgrade_cost": 1410,
+        "dmk_total_usd": 6026,
+        "openjaw_total_usd": 2497,
+        "connector_cost": null
+      },
+      "LAX": {
+        "legs": [
+          {
+            "label": "LAX \u2192 Bangkok",
+            "date": "2026-12-19",
+            "flight": {
+              "price": 983,
+              "airline": "Asiana Airlines",
+              "departure": "9:10 AM on Sat, Dec 19",
+              "arrival": "10:00 PM on Sun, Dec 20",
+              "duration": "21 hr 50 min",
+              "stops": 1,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/LAX-BKK/2026-12-19/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+LAX+to+BKK+on+December+19+2026"
+            },
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 LAX (Return)",
+            "date": "2026-12-30",
+            "flight": {
+              "price": 785,
+              "airline": "THAI, EVA Air",
+              "departure": "5:30 PM on Wed, Dec 30",
+              "arrival": "7:35 PM on Wed, Dec 30",
+              "duration": "17 hr 5 min",
+              "stops": 1,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-LAX/2026-12-30/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+LAX+on+December+30+2026"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": 1768,
+        "total_usd": 1768,
+        "score": 1928,
+        "premium_total_usd": 2882,
+        "upgrade_cost": 1114,
+        "dmk_total_usd": 4286,
+        "openjaw_total_usd": 1802,
+        "connector_cost": null
+      },
+      "CLE": {
+        "legs": [
+          {
+            "label": "CLE \u2192 Bangkok",
+            "date": "2026-12-19",
+            "flight": {
+              "price": 1376,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/CLE-BKK/2026-12-19/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+CLE+to+BKK+on+December+19+2026"
+            },
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 CLE (Return)",
+            "date": "2026-12-30",
+            "flight": {
+              "price": 841,
+              "airline": "Qatar Airways, American",
+              "departure": "8:30 PM on Wed, Dec 30",
+              "arrival": "3:40 PM on Thu, Dec 31",
+              "duration": "31 hr 10 min",
+              "stops": 2,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-CLE/2026-12-30/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+CLE+on+December+30+2026"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": 2217,
+        "total_usd": 2217,
+        "score": 2457,
+        "premium_total_usd": 3632,
+        "upgrade_cost": 1415,
+        "dmk_total_usd": 7437,
+        "openjaw_total_usd": null,
+        "connector_cost": null
+      },
+      "YYZ": {
+        "legs": [
+          {
+            "label": "YYZ \u2192 Bangkok",
+            "date": "2026-12-19",
+            "flight": {
+              "price": 1228,
+              "airline": "Air Canada, Air India",
+              "departure": "11:10 PM on Sat, Dec 19",
+              "arrival": "7:50 AM on Tue, Dec 22",
+              "duration": "44 hr 40 min",
+              "stops": 2,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/YYZ-BKK/2026-12-19/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+YYZ+to+BKK+on+December+19+2026"
+            },
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 YYZ (Return)",
+            "date": "2026-12-30",
+            "flight": {
+              "price": 743,
+              "airline": "THAI, EVA Air",
+              "departure": "12:50 PM on Wed, Dec 30",
+              "arrival": "8:20 PM on Wed, Dec 30",
+              "duration": "19 hr 30 min",
+              "stops": 1,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-YYZ/2026-12-30/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+YYZ+on+December+30+2026"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": 1971,
+        "total_usd": 1438,
+        "score": 1678,
+        "premium_total_usd": 2681,
+        "upgrade_cost": 1243,
+        "dmk_total_usd": 3168,
+        "openjaw_total_usd": 1542,
+        "connector_cost": null
+      }
+    },
+    "2027-01-22": {
+      "DTW": {
+        "legs": [
+          {
+            "label": "DTW \u2192 Bangkok",
+            "date": "2027-01-22",
+            "flight": {
+              "price": 743,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/DTW-BKK/2027-01-22/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+DTW+to+BKK+on+January+22+2027"
+            },
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 DTW (Return)",
+            "date": "2027-02-02",
+            "flight": {
+              "price": 662,
+              "airline": "Philippine Airlines, Alaska",
+              "departure": "10:50 PM on Tue, Feb 2",
+              "arrival": "3:48 PM on Thu, Feb 4",
+              "duration": "52 hr 58 min",
+              "stops": 2,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-DTW/2027-02-02/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+DTW+on+February+2+2027"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": 1405,
+        "total_usd": 1405,
+        "score": 1645,
+        "premium_total_usd": 2710,
+        "upgrade_cost": 1305,
+        "dmk_total_usd": 5711,
+        "openjaw_total_usd": null,
+        "connector_cost": null
+      },
+      "LAX": {
+        "legs": [
+          {
+            "label": "LAX \u2192 Bangkok",
+            "date": "2027-01-22",
+            "flight": {
+              "price": 470,
+              "airline": "Korean Air, Asiana Airlines",
+              "departure": "10:50 PM on Fri, Jan 22",
+              "arrival": "10:00 PM on Sun, Jan 24",
+              "duration": "32 hr 10 min",
+              "stops": 1,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/LAX-BKK/2027-01-22/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+LAX+to+BKK+on+January+22+2027"
+            },
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 LAX (Return)",
+            "date": "2027-02-02",
+            "flight": {
+              "price": 527,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-LAX/2027-02-02/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+LAX+on+February+2+2027"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": 997,
+        "total_usd": 997,
+        "score": 1157,
+        "premium_total_usd": 2243,
+        "upgrade_cost": 1246,
+        "dmk_total_usd": 2881,
+        "openjaw_total_usd": 1055,
+        "connector_cost": null
+      },
+      "CLE": {
+        "legs": [
+          {
+            "label": "CLE \u2192 Bangkok",
+            "date": "2027-01-22",
+            "flight": null,
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 CLE (Return)",
+            "date": "2027-02-02",
+            "flight": {
+              "price": 650,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-CLE/2027-02-02/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+CLE+on+February+2+2027"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": null,
+        "total_usd": null,
+        "score": 9999,
+        "premium_total_usd": null,
+        "upgrade_cost": null,
+        "dmk_total_usd": null,
+        "openjaw_total_usd": null,
+        "connector_cost": null
+      },
+      "YYZ": {
+        "legs": [
+          {
+            "label": "YYZ \u2192 Bangkok",
+            "date": "2027-01-22",
+            "flight": {
+              "price": 754,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/YYZ-BKK/2027-01-22/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+YYZ+to+BKK+on+January+22+2027"
+            },
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 YYZ (Return)",
+            "date": "2027-02-02",
+            "flight": {
+              "price": 691,
+              "airline": "JAL, WestJet",
+              "departure": "8:05 AM on Tue, Feb 2",
+              "arrival": "9:55 PM on Tue, Feb 2",
+              "duration": "25 hr 50 min",
+              "stops": 2,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-YYZ/2027-02-02/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+YYZ+on+February+2+2027"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": 1445,
+        "total_usd": 1054,
+        "score": 1294,
+        "premium_total_usd": 2135,
+        "upgrade_cost": 1081,
+        "dmk_total_usd": 3512,
+        "openjaw_total_usd": 1066,
+        "connector_cost": null
+      }
+    },
+    "2027-01-29": {
+      "DTW": {
+        "legs": [
+          {
+            "label": "DTW \u2192 Bangkok",
+            "date": "2027-01-29",
+            "flight": {
+              "price": 743,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/DTW-BKK/2027-01-29/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+DTW+to+BKK+on+January+29+2027"
+            },
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 DTW (Return)",
+            "date": "2027-02-09",
+            "flight": {
+              "price": 656,
+              "airline": "China Airlines, Alaska",
+              "departure": "5:50 PM on Tue, Feb 9",
+              "arrival": "3:48 PM on Wed, Feb 10",
+              "duration": "33 hr 58 min",
+              "stops": 2,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-DTW/2027-02-09/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+DTW+on+February+9+2027"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": 1399,
+        "total_usd": 1399,
+        "score": 1639,
+        "premium_total_usd": 2710,
+        "upgrade_cost": 1311,
+        "dmk_total_usd": 5711,
+        "openjaw_total_usd": null,
+        "connector_cost": null
+      },
+      "LAX": {
+        "legs": [
+          {
+            "label": "LAX \u2192 Bangkok",
+            "date": "2027-01-29",
+            "flight": {
+              "price": 470,
+              "airline": "Korean Air, Asiana Airlines",
+              "departure": "10:50 PM on Fri, Jan 29",
+              "arrival": "10:00 PM on Sun, Jan 31",
+              "duration": "32 hr 10 min",
+              "stops": 1,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/LAX-BKK/2027-01-29/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+LAX+to+BKK+on+January+29+2027"
+            },
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 LAX (Return)",
+            "date": "2027-02-09",
+            "flight": {
+              "price": 548,
+              "airline": "China Airlines",
+              "departure": "5:50 PM on Tue, Feb 9",
+              "arrival": "7:25 PM on Tue, Feb 9",
+              "duration": "16 hr 35 min",
+              "stops": 1,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-LAX/2027-02-09/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+LAX+on+February+9+2027"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": 1018,
+        "total_usd": 1018,
+        "score": 1178,
+        "premium_total_usd": 2243,
+        "upgrade_cost": 1225,
+        "dmk_total_usd": 2881,
+        "openjaw_total_usd": 1134,
+        "connector_cost": null
+      },
+      "CLE": {
+        "legs": [
+          {
+            "label": "CLE \u2192 Bangkok",
+            "date": "2027-01-29",
+            "flight": null,
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 CLE (Return)",
+            "date": "2027-02-09",
+            "flight": {
+              "price": 650,
+              "airline": "Air Canada, United",
+              "departure": "8:15 AM on Tue, Feb 9",
+              "arrival": "6:20 PM on Tue, Feb 9",
+              "duration": "22 hr 5 min",
+              "stops": 2,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-CLE/2027-02-09/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+CLE+on+February+9+2027"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": null,
+        "total_usd": null,
+        "score": 9999,
+        "premium_total_usd": null,
+        "upgrade_cost": null,
+        "dmk_total_usd": null,
+        "openjaw_total_usd": null,
+        "connector_cost": null
+      },
+      "YYZ": {
+        "legs": [
+          {
+            "label": "YYZ \u2192 Bangkok",
+            "date": "2027-01-29",
+            "flight": {
+              "price": 754,
+              "airline": "Turkish Airlines, THAI",
+              "departure": "8:10 PM on Fri, Jan 29",
+              "arrival": "5:20 AM on Sun, Jan 31",
+              "duration": "21 hr 10 min",
+              "stops": 1,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/YYZ-BKK/2027-01-29/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+YYZ+to+BKK+on+January+29+2027"
+            },
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 YYZ (Return)",
+            "date": "2027-02-09",
+            "flight": {
+              "price": 691,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-YYZ/2027-02-09/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+YYZ+on+February+9+2027"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": 1445,
+        "total_usd": 1054,
+        "score": 1214,
+        "premium_total_usd": 2135,
+        "upgrade_cost": 1081,
+        "dmk_total_usd": 3512,
+        "openjaw_total_usd": 1066,
+        "connector_cost": null
+      }
+    },
+    "2027-02-03": {
+      "DTW": {
+        "legs": [
+          {
+            "label": "DTW \u2192 Bangkok",
+            "date": "2027-02-03",
+            "flight": {
+              "price": 527,
+              "airline": "Alaska, Philippine Airlines",
+              "departure": "4:46 PM on Wed, Feb 3",
+              "arrival": "12:05 PM on Fri, Feb 5",
+              "duration": "31 hr 19 min",
+              "stops": 2,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/DTW-BKK/2027-02-03/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+DTW+to+BKK+on+February+3+2027"
+            },
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 DTW (Return)",
+            "date": "2027-02-14",
+            "flight": {
+              "price": 662,
+              "airline": "Philippine Airlines, Alaska",
+              "departure": "5:55 PM on Sun, Feb 14",
+              "arrival": "3:48 PM on Tue, Feb 16",
+              "duration": "57 hr 53 min",
+              "stops": 2,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-DTW/2027-02-14/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+DTW+on+February+14+2027"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": 1189,
+        "total_usd": 1189,
+        "score": 1509,
+        "premium_total_usd": 2769,
+        "upgrade_cost": 1580,
+        "dmk_total_usd": 5685,
+        "openjaw_total_usd": null,
+        "connector_cost": null
+      },
+      "LAX": {
+        "legs": [
+          {
+            "label": "LAX \u2192 Bangkok",
+            "date": "2027-02-03",
+            "flight": {
+              "price": 397,
+              "airline": "JAL",
+              "departure": "1:20 PM on Wed, Feb 3",
+              "arrival": "5:00 AM on Fri, Feb 5",
+              "duration": "24 hr 40 min",
+              "stops": 1,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/LAX-BKK/2027-02-03/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+LAX+to+BKK+on+February+3+2027"
+            },
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 LAX (Return)",
+            "date": "2027-02-14",
+            "flight": {
+              "price": 548,
+              "airline": "China Airlines",
+              "departure": "2:05 PM on Sun, Feb 14",
+              "arrival": "7:25 PM on Sun, Feb 14",
+              "duration": "20 hr 20 min",
+              "stops": 1,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-LAX/2027-02-14/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+LAX+on+February+14+2027"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": 945,
+        "total_usd": 945,
+        "score": 1105,
+        "premium_total_usd": 2235,
+        "upgrade_cost": 1290,
+        "dmk_total_usd": 2829,
+        "openjaw_total_usd": 1061,
+        "connector_cost": null
+      },
+      "CLE": {
+        "legs": [
+          {
+            "label": "CLE \u2192 Bangkok",
+            "date": "2027-02-03",
+            "flight": null,
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 CLE (Return)",
+            "date": "2027-02-14",
+            "flight": {
+              "price": 676,
+              "airline": "China Airlines, Alaska",
+              "departure": "2:05 PM on Sun, Feb 14",
+              "arrival": "4:49 PM on Mon, Feb 15",
+              "duration": "38 hr 44 min",
+              "stops": 2,
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-CLE/2027-02-14/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+CLE+on+February+14+2027"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": null,
+        "total_usd": null,
+        "score": 9999,
+        "premium_total_usd": null,
+        "upgrade_cost": null,
+        "dmk_total_usd": null,
+        "openjaw_total_usd": null,
+        "connector_cost": null
+      },
+      "YYZ": {
+        "legs": [
+          {
+            "label": "YYZ \u2192 Bangkok",
+            "date": "2027-02-03",
+            "flight": {
+              "price": 749,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/YYZ-BKK/2027-02-03/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+YYZ+to+BKK+on+February+3+2027"
+            },
+            "cabin": "economy"
+          },
+          {
+            "label": "Bangkok \u2192 YYZ (Return)",
+            "date": "2027-02-14",
+            "flight": {
+              "price": 724,
+              "airline": "\u2013",
+              "departure": "\u2013",
+              "arrival": "\u2013",
+              "duration": "\u2013",
+              "stops": "Unknown",
+              "nonstop_price": null,
+              "nonstop_airline": null,
+              "kayak_url": "https://www.kayak.com/flights/BKK-YYZ/2027-02-14/1adults/economy",
+              "gflights_url": "https://www.google.com/travel/flights?q=flights+from+BKK+to+YYZ+on+February+14+2027"
+            },
+            "cabin": "economy"
+          }
+        ],
+        "total": 1473,
+        "total_usd": 1074,
+        "score": 1234,
+        "premium_total_usd": 2115,
+        "upgrade_cost": 1041,
+        "dmk_total_usd": 3485,
+        "openjaw_total_usd": 1192,
         "connector_cost": null
       }
     },
